@@ -55,3 +55,34 @@ CREATE TABLE requests (
     created_at TIMESTAMP DEFAULT NOW()
 );
 ```
+## 6. Backend Setup
+
+Navigate to the backend folder and install dependencies:
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+Run the FastAPI backend (on port 8001 for frontend compatibility):
+```bash
+uvicorn app.main:app --reload --host 127.0.0.1 --port 8001
+```
+
+The API will be available at:
+👉 http://127.0.0.1:8001/docs
+
+## 7. Frontend Setup
+
+Navigate to the frontend folder and install dependencies:
+```bash
+cd frontend
+npm install
+```
+
+Run the Next.js frontend:
+```bash
+npm run dev
+```
+
+The app will be available at:
+👉 http://localhost:3000
