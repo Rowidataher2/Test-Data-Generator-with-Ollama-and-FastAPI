@@ -35,8 +35,7 @@ It uses **FastAPI** (backend), **Next.js** (frontend), **PostgreSQL** for persis
 
 ## 4. Clone Repository
 ```bash
-git clone https://github.com/your-username/test-data-generator.git
-cd test-data-generator
+git clone https://github.com/Rowidataher2/Test-Data-Generator-with-Ollama-and-FastAPI.git
 ```
 ## 5.Database Setup
 
