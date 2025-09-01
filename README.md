@@ -86,3 +86,105 @@ npm run dev
 
 The app will be available at:
 👉 http://localhost:3000
+
+## 8. Ollama Setup (Mistral 7B)
+
+Install Ollama
+ and pull the Mistral model:
+```bash
+ollama pull mistral:7b
+```
+
+Start Ollama in the background (it listens on http://localhost:11434 by default):
+```bash
+ollama run mistral:7b
+```
+
+✅ Testing the Backend (Swagger UI)
+
+Instead of using curl, you can easily test your backend API with Swagger:
+
+1.Open your browser and go to:
+👉 http://127.0.0.1:8001/docs
+
+2.Find the POST /chat endpoint.
+
+3.Click "Try it out", then provide this sample request body:
+```json
+{
+  "user_id": 1,
+  "user_request": "Create a cars table with car_id, color, and brand with 3 rows",
+  "messages": []
+}
+```
+
+4.Click "Execute" and check the generated test data in the response.
+
+📊 Example Output
+
+Example response when generating a cars table:
+```json
+{
+  "schema": {
+    "table": "cars",
+    "columns": ["car_id", "color", "brand"]
+  },
+  "rows": [
+    [1, "Red", "Toyota"],
+    [2, "Blue", "Ford"],
+    [3, "Black", "BMW"]
+  ]
+}
+```
+✅ Frontend Test
+
+1.Open http://localhost:3000
+
+2.Enter:
+
+Create a cars table with car_id, color, and brand with 3 rows
+
+
+3.Click Send.
+
+Expected output in UI:
+```json
+Here are 3 example rows for your schema:
+[
+  {
+    "car_id": 1,
+    "color": "red",
+    "brand": "Ford"
+  },
+  {
+    "car_id": 2,
+    "color": "blue",
+    "brand": "Toyota"
+  },
+  {
+    "car_id": 3,
+    "color": "silver",
+    "brand": "Honda"
+  }
+]
+```
+
+✅ How to Test /history/{user_id} in Swagger UI
+
+
+1.Open Swagger UI in your browser:
+
+    http://127.0.0.1:8001/docs
+
+
+2.Look for the GET /history/{user_id} endpoint in the docs.
+
+3.Expand it, and you will see two parameters:
+
+          user_id  → enter 1
+
+          limit  → enter 5
+
+4.Click "Try it out", then "Execute".
+
+You should see the response JSON with the last 5 requests for user_id=1.
