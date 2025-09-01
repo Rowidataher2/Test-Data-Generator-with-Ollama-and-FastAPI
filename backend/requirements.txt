@@ -1,0 +1,14 @@
+# fastapi
+# uvicorn
+# psycopg2-binary
+# sqlalchemy
+# faker
+
+
+fastapi
+uvicorn[standard]
+sqlalchemy
+psycopg2-binary
+pydantic
+requests
+
